@@ -1,27 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body{
+     font-family: 'Poppins', sans-serif;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.text-color{
+     color: #001E9A;
+     font-family: 'Poppins', sans-serif;
+}
+.custom-font {
+     font-size: 56px;
+}
+.btn-primary {
+     background-color: #001E9A !important;
+     border: none;
+}
+
+@media (max-width: 768px) {
+  /* CSS rules for small screens */
+     .custom-font {
+          font-size: 30px;
+     }
+     .img-sm {
+          right: -220%;
+          top:-50%;
+     }
 }
