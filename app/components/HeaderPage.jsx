@@ -7,7 +7,7 @@ export default function HeaderPage() {
 				<div className="container">
 					<Link className="navbar-brand" href="./">
 						<img
-							src="Tekprenuers.png"
+							src="/Tekprenuers.png"
 							alt=""
 							width="110"
 							height="30"
