@@ -33,7 +33,7 @@ const validationSchema = Joi.object({
 			"any.required": "Phone number is required",
 		}),
 
-	dateOfBirth: Joi.date().iso().max("now").required().messages({
+	date_of_birth: Joi.date().iso().max("now").required().messages({
 		"date.base": "Date of birth must be a valid date",
 		"date.empty": "Date of birth is required",
 		"date.iso": "Date of birth must be in ISO format",
@@ -65,14 +65,41 @@ const businessValidationSchema = Joi.object({
 		"string.max": "Location cannot exceed {#limit} characters",
 		"any.required": "Location is required",
 	}),
-	image: Joi.object().meta({ swaggerType: "file" }).required().messages({
+	logo: Joi.object().meta({ swaggerType: "file" }).required().messages({
 		"any.required": "Image is required",
+	}),
+});
+
+const socialLinkSchema = Joi.object({
+	// Additional fields
+	facebook: Joi.string().min(10).max(500).required().messages({
+		"string.base": "Facebook link must be a string",
+		"string.empty": "Facebook link is required",
+		"string.min": "Facebook link must be at least {#limit} characters long",
+		"string.max": "Facebook link cannot exceed {#limit} characters",
+		"any.required": "Facebook link is required",
+	}),
+	linkedIn: Joi.string().min(2).max(50).required().messages({
+		"string.base": "LinkedIn link must be a string",
+		"string.empty": "LinkedIn link is required",
+		"string.min": "LinkedIn link must be at least {#limit} characters long",
+		"string.max": "LinkedIn link cannot exceed {#limit} characters",
+		"any.required": "LinkedIn link is required",
+	}),
+	Instagram: Joi.string().min(5).max(100).required().messages({
+		"string.base": "Instagram link must be a string",
+		"string.empty": "Instagram link is required",
+		"string.min":
+			"Instagram link must be at least {#limit} characters long",
+		"string.max": "Instagram link cannot exceed {#limit} characters",
+		"any.required": "Instagram link is required",
 	}),
 });
 
 const validation = {
 	validationSchema,
 	businessValidationSchema,
+	socialLinkSchema,
 };
 
 export default validation;

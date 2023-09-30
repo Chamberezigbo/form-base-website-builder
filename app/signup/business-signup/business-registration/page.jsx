@@ -24,7 +24,7 @@ const BusinessRegistrationPage = () => {
 		name: "",
 		description: "",
 		location: "",
-		image: null, // Initially set to null
+		logo: null, // Initially set to null
 		// updateCheck: !true,
 	});
 	// loader//
@@ -37,7 +37,7 @@ const BusinessRegistrationPage = () => {
 		const { name, value } = e.target;
 
 		// Handle the image input separately from other input fields
-		if (name === "image") {
+		if (name === "logo") {
 			const file = e.target.files[0];
 			setSignupData((prevData) => ({
 				...prevData,
@@ -94,10 +94,10 @@ const BusinessRegistrationPage = () => {
 			formData.append("name", signupData.name);
 			formData.append("description", signupData.description);
 			formData.append("location", signupData.location);
-			formData.append("image", signupData.image);
+			formData.append("logo", signupData.logo);
 
-			const url = "http://localhost:3001/api/business/";
-			console.log(formData);
+			const url =
+				"https://apis.thetekpreneurs.com/api-endpoint/save-business-details.php";
 			const response = await fetch(url, {
 				method: "POST",
 				headers: {
@@ -110,13 +110,13 @@ const BusinessRegistrationPage = () => {
 
 			if (response.ok) {
 				const responseData = await response.json();
-				const userData = responseData.message;
-				toast.success("details has been successfully submitted");
-				console.log(userData);
+				const userData = responseData;
+				toast.success(userData.message);
+				console.log(responseData);
 				router.push("/signup/business-signup/social-link/"); // Replace '/success' with the desired page path
 			} else {
 				const errorData = await response.json();
-				toast.error(errorData.error);
+				toast.error(errorData.message);
 				console.log(errorData);
 			}
 		} catch (error) {

@@ -22,7 +22,7 @@ const page = () => {
 		email: "",
 		password: "",
 		phone: "",
-		dateOfBirth: "",
+		date_of_birth: "",
 		// updateCheck: !true,
 	});
 	// loader//
@@ -72,7 +72,8 @@ const page = () => {
 				});
 				return;
 			}
-			const url = "https://mybusiness.onrender.com/api/users/";
+			const url =
+				"https://apis.thetekpreneurs.com/api-endpoint/signup.php";
 			const response = await fetch(url, {
 				method: "POST",
 				headers: {
@@ -85,15 +86,13 @@ const page = () => {
 
 			if (response.ok) {
 				const responseData = await response.json();
-				const userData = responseData.message;
+				const userData = responseData;
 				dispatch(saveUserData(userData)); // This will save userData to Redux state
-				toast.success("details has been successfully submitted");
-				console.log(userData);
+				toast.success(userData.message);
 				router.push("/signup/business-signup/business-registration"); // Replace '/success' with the desired page path
 			} else {
 				const errorData = await response.json();
-				toast.error(errorData.errors);
-				console.log(errorData);
+				toast.error(errorData.message);
 			}
 		} catch (error) {
 			toast.error(error);

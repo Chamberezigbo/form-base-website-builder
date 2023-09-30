@@ -24,7 +24,7 @@ const signupFormFields = [
 		placeholder: "Enter your phone number",
 	},
 	{
-		name: "dateOfBirth",
+		name: "date_of_birth",
 		label: "Date Of Birth",
 		type: "date",
 		placeholder: "Enter your date of birth",
@@ -50,16 +50,38 @@ const businessFormFields = [
 		placeholder: "Enter your address of your business",
 	},
 	{
-		name: "image",
+		name: "logo",
 		label: " Business Logo",
 		type: "file",
 		placeholder: "Enter your business logo",
 	},
 ];
 
+const socialLinkFormFields = [
+	{
+		name: "facebook",
+		label: "Facebook",
+		type: "url",
+		placeholder: "Enter your Facebook Url",
+	},
+	{
+		name: "linkedIn",
+		label: "LinkedIn",
+		type: "url",
+		placeholder: "Enter your linkedin",
+	},
+	{
+		name: "Instagram",
+		label: "Instagram",
+		type: "url",
+		placeholder: "Enter your Instagram",
+	},
+];
+
 const formFieldsProperty = {
 	signupFormFields,
 	businessFormFields,
+	socialLinkFormFields,
 };
 
 export default formFieldsProperty;
