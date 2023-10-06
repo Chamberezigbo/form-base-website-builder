@@ -17,6 +17,7 @@ function page() {
 	const token = userData?.token;
 
 	useEffect(() => {
+		console.log('hello')
 		const fetchData = async () => {
 			if (token) {
 				// Fetch data from your REST API using productId as a query parameter
