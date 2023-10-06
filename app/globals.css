@@ -20,6 +20,80 @@ body{
      border: none;
 }
 
+
+/*  styles for dashboard  */
+.logo {
+     border: 3px solid #ffff; /* Border color and thickness */
+     border-radius: 15px;  
+}
+
+/* Styling for the icon container */
+.social-icons {
+     font-size: 15px; /* Set the desired font size */
+     display: grid;
+     grid-template-columns: repeat(2, 0fr);
+     border: 2px solid #0084FF; /* Border color and thickness */
+     border-radius: 10px; 
+     padding: 5px;
+}
+
+/* Styling for individual icons within the container */
+.social-icons .icon {
+  /* margin-right: 10px;  */
+}
+
+/* Style the phone icon container */
+.phone-icon {
+    position: fixed; /* Position the icon relative to the viewport */
+    bottom: 20px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    z-index: 999; /* Ensure the logo appears on top of other content */
+}
+
+/* Style the phone icon image */
+.phone-icon .phoneIcon {
+    width: 40px; /* Adjust the size of the phone icon as needed */
+    height: auto;
+    color: black;
+}
+
+/* Optionally, add hover effects or other styling for the icon */
+.phone-icon .phoneIcon:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+/* 404 page */
+.error-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error-container h1 {
+  color: #ff0000; /* Red color for error messages */
+  font-size: 24px;
+}
+
+.error-container p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.error-container a {
+  color: #007bff; /* Blue color for links */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.error-container a:hover {
+  text-decoration: underline;
+}
+
+
 @media (max-width: 768px) {
   /* CSS rules for small screens */
      .custom-font {

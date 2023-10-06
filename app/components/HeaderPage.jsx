@@ -5,7 +5,7 @@ export default function HeaderPage() {
 		<header>
 			<nav className="navbar navbar-light bg-lighter">
 				<div className="container">
-					<Link className="navbar-brand" href="./">
+					<Link className="navbar-brand" href="/">
 						<img
 							src="/Tekprenuers.png"
 							alt=""

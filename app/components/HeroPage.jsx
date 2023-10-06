@@ -25,7 +25,6 @@ const HeroPage = () => {
 							<Link
 								href="signup/business-signup/"
 								className="btn btn-primary ms-md-5 mt-3"
-								type="button"
 							>
 								Get Started
 							</Link>

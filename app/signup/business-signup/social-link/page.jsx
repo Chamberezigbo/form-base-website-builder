@@ -90,7 +90,7 @@ function page() {
 				const userData = responseData.message;
 				toast.success("details has been successfully submitted");
 				console.log(userData);
-				router.push("/dashboard/"); // Replace '/success' with the desired page path
+				router.push("../../dashboard/");
 			} else {
 				const errorData = await response.json();
 				toast.error(errorData.error);

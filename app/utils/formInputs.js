@@ -30,6 +30,20 @@ const signupFormFields = [
 		placeholder: "Enter your date of birth",
 	},
 ];
+const loginFormFields = [
+	{
+		name: "email",
+		label: "Email",
+		type: "email",
+		placeholder: "Enter your email",
+	},
+	{
+		name: "password",
+		label: "Password",
+		type: "password",
+		placeholder: "Enter your password",
+	},
+];
 
 const businessFormFields = [
 	{
@@ -82,6 +96,7 @@ const formFieldsProperty = {
 	signupFormFields,
 	businessFormFields,
 	socialLinkFormFields,
+	loginFormFields,
 };
 
 export default formFieldsProperty;

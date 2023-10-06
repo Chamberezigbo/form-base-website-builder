@@ -1,0 +1,20 @@
+.section {
+     background: linear-gradient(to left, #0084FF, #BC00FE);
+     /* Other CSS properties for this element */
+     color: #FFFFFF;
+     position: absolute;
+     height: 92.5vh;
+     width: 100%;
+}
+
+.h1 {
+     font-size: 100px;
+}
+
+@media (max-width: 768px) {
+  /* CSS rules for small screens */
+     .h1 {
+     font-size: 50px;
+     }
+
+}

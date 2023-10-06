@@ -1,12 +1,11 @@
 "use client";
 import { useDispatch } from "react-redux";
-import Link from "next/link";
-import { saveUserData } from "../../redux/reducers/userReducer";
-import validation from "./methods/methods";
-import formFieldsProperty from "../../utils/formInputs";
-import DynamicForm from "../../components/Dynamic";
+import { saveUserData } from "../redux/reducers/userReducer";
+import validation from "../signup/business-signup/methods/methods";
+import formFieldsProperty from "../utils/formInputs";
+import DynamicForm from "../components/Dynamic";
 
-import "./css/pageStyle.css";
+import "../signup/business-signup/css/pageStyle.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,15 +14,12 @@ import "react-toastify/dist/ReactToastify.css";
 const page = () => {
 	const dispatch = useDispatch();
 	const router = useRouter();
-	const formTitle = "Welcome";
+	const formTitle = "Login";
 
 	// Defining the state of my form//
 	const [signupData, setSignupData] = useState({
-		fullName: "",
 		email: "",
 		password: "",
-		phone: "",
-		date_of_birth: "",
 		// updateCheck: !true,
 	});
 	// loader//
@@ -39,7 +35,7 @@ const page = () => {
 			[name]: value,
 		}));
 		//validate after change //
-		const fieldSchema = validation.validationSchema.extract(name);
+		const fieldSchema = validation.loginSchema.extract(name);
 		const { error } = fieldSchema.validate(value, {
 			abortEarly: false,
 		});
@@ -55,7 +51,7 @@ const page = () => {
 		// Do something with the form data, such as making an API request or performing validation
 		try {
 			setLoading(true); // Set loading state to true
-			const { error } = validation.validationSchema.validate(signupData, {
+			const { error } = validation.loginSchema.validate(signupData, {
 				abortEarly: false,
 			});
 
@@ -74,7 +70,7 @@ const page = () => {
 				return;
 			}
 			const url =
-				"https://apis.thetekpreneurs.com/api-endpoint/signup.php";
+				"https://apis.thetekpreneurs.com/api-endpoint/login.php";
 			const response = await fetch(url, {
 				method: "POST",
 				headers: {
@@ -87,10 +83,27 @@ const page = () => {
 
 			if (response.ok) {
 				const responseData = await response.json();
-				const userData = responseData;
-				dispatch(saveUserData(userData)); // This will save userData to Redux state
-				toast.success(userData.message);
-				router.push("/signup/business-signup/business-registration"); // Replace '/success' with the desired page path
+				if (
+					response.status === 201 &&
+					responseData.message === "Missing Social Links"
+				) {
+					dispatch(saveUserData(responseData)); // This will save userData to Redux state
+					toast.success(responseData.message);
+					router.push("../signup/business-signup/social-link/"); // Replace '/success' with the desired page path
+				} else if (
+					response.status === 201 &&
+					responseData.message === "Missing Business Details"
+				) {
+					dispatch(saveUserData(responseData)); // This will save userData to Redux state
+					toast.success(responseData.message);
+					router.push(
+						"../signup/business-signup/business-registration/"
+					);
+				} else {
+					dispatch(saveUserData(responseData)); // This will save userData to Redux state
+					// toast.success(responseData.message);
+					router.push("../dashboard"); // Replace '/success' with the desired page path
+				}
 			} else {
 				const errorData = await response.json();
 				toast.error(errorData.message);
@@ -103,7 +116,7 @@ const page = () => {
 	};
 
 	// Set the value property for each form field based on the signupData state
-	const formFieldsWithValue = formFieldsProperty.signupFormFields.map(
+	const formFieldsWithValue = formFieldsProperty.loginFormFields.map(
 		(field) => ({
 			...field,
 			value: signupData[field.name],
@@ -120,11 +133,6 @@ const page = () => {
 				onSubmit={handleSubmit}
 				loading={loading} // Pass the loading state if needed
 			/>
-			<div className="container text-center mt-5">
-				<p>
-					Already have an account? <Link href="../login/">Login</Link>
-				</p>
-			</div>
 		</>
 	);
 };
