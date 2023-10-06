@@ -35,8 +35,8 @@ const Dashboard = ({ data }) => {
 						</div>
 					</div>
 					<div className="col-lg-12 mt-3">
-						<div class="card">
-							<div class="card-body d-flex">
+						<div className="card">
+							<div className="card-body d-flex">
 								<span className="social-icons">
 									<BsFacebook className="icon" />
 									<BiLogoInstagramAlt className="icon" />

@@ -25,7 +25,7 @@ function page() {
 
 				try {
 					const response = await fetch(url, {
-						method: "GET",
+						method : 'GET',
 						headers: {
 							Authorization: `Bearer ${token}`, // Include the token in the Authorization header
 						},

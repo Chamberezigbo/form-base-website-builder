@@ -29,8 +29,8 @@ const Dashboard = ({ data }) => {
 							target="_blank"
 							rel="Social link"
 						>
-							<div class="card">
-								<div class="card-body d-flex">
+							<div className="card">
+								<div className="card-body d-flex">
 									<span className="social-icons">
 										<BsFacebook className="icon" />
 										<BiLogoInstagramAlt className="icon" />
@@ -51,8 +51,8 @@ const Dashboard = ({ data }) => {
 							rel="Social Link"
 							target="_blank"
 						>
-							<div class="card">
-								<div class="card-body d-flex">
+							<div className="card">
+								<div className="card-body d-flex">
 									<span className="social-icons">
 										<BsFacebook className="icon" />
 										<BiLogoInstagramAlt className="icon" />
@@ -72,8 +72,8 @@ const Dashboard = ({ data }) => {
 							target="_blank"
 							rel="Social link"
 						>
-							<div class="card">
-								<div class="card-body d-flex">
+							<div className="card">
+								<div className="card-body d-flex">
 									<span className="social-icons">
 										<BsFacebook className="icon" />
 										<BiLogoInstagramAlt className="icon" />
@@ -93,8 +93,8 @@ const Dashboard = ({ data }) => {
 							target="_blank"
 							rel="Email Address"
 						>
-							<div class="card">
-								<div class="card-body d-flex">
+							<div className="card">
+								<div className="card-body d-flex">
 									<span className="social-icons">
 										<BsFacebook className="icon" />
 										<BiLogoInstagramAlt className="icon" />
