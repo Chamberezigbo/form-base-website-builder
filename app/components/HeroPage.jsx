@@ -21,13 +21,14 @@ const HeroPage = () => {
 								alt=""
 								className="img-fluid position-absolute top-0 start-0 mt-4 ms-3 d-none d-sm-block"
 							/>
-
-							<Link
-								href="signup/business-signup/"
-								className="btn btn-primary ms-md-5 mt-3"
-							>
-								Get Started
-							</Link>
+							<div style={{ zIndex: "99999999", position: "relative" }}>
+								<Link
+									href="signup/business-signup/"
+									className="btn btn-primary ms-md-5 mt-3"
+								>
+									Get Started
+								</Link>
+							</div>
 						</div>
 					</div>
 					<div className="col-4 mt-md-0 mt-5 ms-5 ps-4 ps-md-0 ms-md-0">
