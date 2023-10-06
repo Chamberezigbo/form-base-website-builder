@@ -17,7 +17,6 @@ function page() {
 	const token = userData?.token;
 
 	useEffect(() => {
-		console.log('hello')
 		const fetchData = async () => {
 			if (token) {
 				// Fetch data from your REST API using productId as a query parameter
@@ -26,7 +25,7 @@ function page() {
 
 				try {
 					const response = await fetch(url, {
-						method: "GET",
+						method : 'GET',
 						headers: {
 							Authorization: `Bearer ${token}`, // Include the token in the Authorization header
 						},
