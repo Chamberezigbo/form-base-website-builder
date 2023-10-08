@@ -110,7 +110,7 @@ const Dashboard = ({ data }) => {
 					</div>
 				</div>
 			</div>
-			<div className="phone-icon">
+			<div className="phone-icon text-light">
 				<a href={`tel:+${data.user.phone}`}>
 					<BsFillTelephoneOutboundFill className="phoneIcon" />
 				</a>

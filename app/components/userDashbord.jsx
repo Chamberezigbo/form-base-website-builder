@@ -72,11 +72,11 @@ const Dashboard = ({ data }) => {
 					</div>
 				</div>
 			</div>
-			<div className="phone-icon">
+			{/* <div className="phone-icon">
 				<a href={`tel:+${data.user.phone}`}>
 					<BsFillTelephoneOutboundFill className="phoneIcon" />
 				</a>
-			</div>
+			</div> */}
 		</section>
 	);
 };
