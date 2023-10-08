@@ -54,7 +54,7 @@ body{
 .phone-icon .phoneIcon {
     width: 40px; /* Adjust the size of the phone icon as needed */
     height: auto;
-    color: black;
+    color: white;
 }
 
 /* Optionally, add hover effects or other styling for the icon */

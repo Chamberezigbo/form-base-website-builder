@@ -25,13 +25,12 @@ function page() {
 
 				try {
 					const response = await fetch(url, {
-						method : 'GET',
+						method: "GET",
 						headers: {
 							Authorization: `Bearer ${token}`, // Include the token in the Authorization header
 						},
 					});
 
-					console.log(response);
 					if (response.ok) {
 						const responseData = await response.json();
 						setProductData(responseData);
@@ -41,7 +40,6 @@ function page() {
 					// Handle network errors
 					// toast.error(error);
 					setError("User not found");
-					console.log(error);
 				} finally {
 					setIsLoading(false);
 				}
