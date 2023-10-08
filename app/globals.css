@@ -93,6 +93,19 @@ body{
   text-decoration: underline;
 }
 
+/* Style for the text that can be clicked to copy */
+.copyable {
+  cursor: pointer;
+  color: blue; /* You can customize the color */
+}
+
+/* Style for the text after it's successfully copied */
+.copied {
+  color: green; /* You can customize the color */
+  font-weight: bold;
+}
+
+
 
 @media (max-width: 768px) {
   /* CSS rules for small screens */

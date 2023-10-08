@@ -3,6 +3,7 @@ import { DiAptana } from "react-icons/di";
 
 const DynamicForm = ({
 	formTitle,
+	buttonTitle,
 	formFields,
 	onChange,
 	onSubmit,
@@ -56,7 +57,7 @@ const DynamicForm = ({
 								{loading ? (
 									<DiAptana className="spinner" />
 								) : (
-									"Signup"
+									buttonTitle
 								)}
 							</button>
 						</div>

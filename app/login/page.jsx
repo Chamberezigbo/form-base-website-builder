@@ -15,6 +15,7 @@ const page = () => {
 	const dispatch = useDispatch();
 	const router = useRouter();
 	const formTitle = "Login";
+	const buttonTitle = "Login";
 
 	// Defining the state of my form//
 	const [signupData, setSignupData] = useState({
@@ -128,6 +129,7 @@ const page = () => {
 			<ToastContainer limit={1} />
 			<DynamicForm
 				formTitle={formTitle}
+				buttonTitle={buttonTitle}
 				formFields={formFieldsWithValue}
 				onChange={handleInputChange}
 				onSubmit={handleSubmit}

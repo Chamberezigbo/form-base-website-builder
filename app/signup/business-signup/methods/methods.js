@@ -97,7 +97,7 @@ const socialLinkSchema = Joi.object({
 		"string.max": "Facebook link cannot exceed {#limit} characters",
 		"any.required": "Facebook link is required",
 	}),
-	linkedIn: Joi.string().min(2).max(50).required().messages({
+	linkedIn: Joi.string().min(2).max(100).required().messages({
 		"string.base": "LinkedIn link must be a string",
 		"string.empty": "LinkedIn link is required",
 		"string.min": "LinkedIn link must be at least {#limit} characters long",

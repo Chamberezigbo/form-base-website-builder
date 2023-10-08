@@ -76,19 +76,19 @@ const socialLinkFormFields = [
 		name: "facebook",
 		label: "Facebook",
 		type: "url",
-		placeholder: "Enter your Facebook Url",
+		placeholder: "Enter your Facebook or any social medial link",
 	},
 	{
 		name: "linkedIn",
 		label: "LinkedIn",
 		type: "url",
-		placeholder: "Enter your linkedin",
+		placeholder: "Enter your linkedin or any social medial link",
 	},
 	{
 		name: "Instagram",
 		label: "Instagram",
 		type: "url",
-		placeholder: "Enter your Instagram",
+		placeholder: "Enter your Instagram or any social medial link",
 	},
 ];
 

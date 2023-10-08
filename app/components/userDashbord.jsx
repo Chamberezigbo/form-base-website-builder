@@ -1,22 +1,32 @@
 import { useState } from "react";
 import styles from "./dashboard.module.css";
-import {
-	BsFacebook,
-	BsWhatsapp,
-	BsFillTelephoneOutboundFill,
-} from "react-icons/bs";
-import { BiLogoInstagramAlt, BiLogoTiktok } from "react-icons/bi";
+import { BiLinkAlt } from "react-icons/bi";
+import { BsFillTelephoneOutboundFill } from "react-icons/bs";
 
 const Dashboard = ({ data }) => {
-	const [isCopied, setIsCopied] = useState(false);
+	const [copied, setCopied] = useState(false);
 
-	// Function to handle copying text to clipboard
-	const handleCopyText = () => {
-		const textToCopy = data.user.full_name;
-		navigator.clipboard
-			.writeText(textToCopy)
-			.then(() => setIsCopied(true))
-			.catch((error) => console.error("Error copying text: ", error));
+	// Function to handle copying the text
+	const copyText = () => {
+		const nameToCopy = data.user.name;
+
+		// Create a temporary input element
+		const tempInput = document.createElement("input");
+		tempInput.value = nameToCopy;
+		document.body.appendChild(tempInput);
+
+		// Select the text in the input element
+		tempInput.select();
+		tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+		// Copy the text to the clipboard
+		document.execCommand("copy");
+
+		// Remove the temporary input element
+		document.body.removeChild(tempInput);
+
+		// Set the copied state to true to provide feedback
+		setCopied(true);
 	};
 
 	return (
@@ -34,32 +44,31 @@ const Dashboard = ({ data }) => {
 							<h5>{data.user.description}</h5>
 						</div>
 					</div>
-					<div className="col-lg-12 mt-3">
+					<div className="col-lg-9 mt-3 mx-auto">
 						<div className="card">
 							<div className="card-body d-flex">
 								<span className="social-icons">
-									<BsFacebook className="icon" />
-									<BiLogoInstagramAlt className="icon" />
-									<BiLogoTiktok className="icon" />
-									<BsWhatsapp className="icon" />
+									<BiLinkAlt
+										className="icon"
+										onClick={copyText}
+									/>
 								</span>
-								<div className="mt-2 ms-5">
-									<div
-										className={`copiable-content ${
-											isCopied ? "copied" : ""
+								<div className="mx-auto">
+									<span
+										className={`copyable ${
+											copied ? "copied" : ""
 										}`}
-										onClick={handleCopyText}
+										onClick={copyText}
 									>
-										{data.user.full_name}
-									</div>
-									{isCopied && (
-										<span className="copy-feedback">
-											Copied!
-										</span>
-									)}
+										formcraft.thetekpreneurs.com/dashboard/
+										{data.user.user_id}
+									</span>
 								</div>
 							</div>
 						</div>
+						<p className="text-center">
+							copy your link to potential client
+						</p>
 					</div>
 				</div>
 			</div>
