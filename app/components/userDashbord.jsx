@@ -8,7 +8,7 @@ const Dashboard = ({ data }) => {
 
 	// Function to handle copying the text
 	const copyText = () => {
-		const nameToCopy = `formcraft.thetekpreneurs.com/dashboard/${data.user.user_id}`;
+		const nameToCopy = `https://formcraft.netlify.app/dashboard/${data.user.user_id}`;
 
 		// Create a temporary input element
 		const tempInput = document.createElement("input");
