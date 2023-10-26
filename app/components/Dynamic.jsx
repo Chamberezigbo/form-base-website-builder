@@ -15,7 +15,7 @@ const DynamicForm = ({
 			<div className="row justify-content-center mt-0 mt-md-5">
 				<div className="col-md-6">
 					<h1 className="text-center">{formTitle}</h1>
-					<form onSubmit={onSubmit}>
+					<form onSubmit={onSubmit} data-netlify="true">
 						{formFields.map((field) => (
 							<div className="mb-3" key={field.name}>
 								<label
