@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import HeaderPage from "./components/HeaderPage";
 import "bootstrap/dist/css/bootstrap.css";
+import CookieWarning from "./components/CookieWarning";
 
 import { Provider } from "react-redux";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
 			<html lang="en">
 				<body className={inter.className}>
 					<HeaderPage />
+					<CookieWarning />
 					{children}
 				</body>
 			</html>
