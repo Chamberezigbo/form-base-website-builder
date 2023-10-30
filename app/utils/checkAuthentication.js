@@ -1,15 +1,28 @@
-// utils/checkAuthentication.js
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { saveUserData } from "../redux/reducers/userReducer";
 
 const checkAuthentication = () => {
-	const userData = useSelector((state) => state.user.userData); // Get the token from localStorage (or sessionStorage, cookies, etc.)
+	const dispatch = useDispatch();
 
-       if (userData && userData.token) {
-			// Check if userData is not null/undefined and has a "token" property
-			return true; // If the userData has a "token" property, the user is authenticated
-		} else {
-			return false; // If the userData is not present or doesn't have a "token" property, the user is not authenticated
-		}
+	// Get user data from Redux state
+	const userData = useSelector((state) => state.user.userData);
+
+	// If user data is present in Redux, return true
+	if (userData && userData.token) {
+		return true;
+	}
+
+	// If user data is not in Redux, try to get it from cookies
+	const cookieUserData = getCookieUserData(); // Implement this function to read user data from cookies
+
+	// If user data is found in cookies, save it to Redux and return true
+	if (cookieUserData) {
+		dispatch(saveUserData(cookieUserData));
+		return true;
+	}
+
+	// If user data is not in Redux or cookies, return false
+	return false;
 };
 
 export default checkAuthentication;

@@ -92,6 +92,16 @@ const page = () => {
 				if (response.ok) {
 					const responseData = await response.json();
 					const userData = responseData;
+
+					// Set the expiration date to a date in the future (e.g., 30 days from the current date)
+					const expirationDate = new Date();
+					expirationDate.setDate(expirationDate.getDate() + 30);
+
+					// Save user data in a cookie with a dynamic expiration date
+					document.cookie = `userData=${JSON.stringify(
+						userData
+					)}; expires=${expirationDate.toUTCString()}; path=/`;
+
 					dispatch(saveUserData(userData)); // This will save userData to Redux state
 					toast.success(userData.message);
 					router.push(

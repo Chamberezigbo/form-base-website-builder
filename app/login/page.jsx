@@ -88,6 +88,15 @@ const page = () => {
 					response.status === 201 &&
 					responseData.message === "Missing Social Links"
 				) {
+					// Set the expiration date to a date in the future (e.g., 30 days from the current date)
+					const expirationDate = new Date();
+					expirationDate.setDate(expirationDate.getDate() + 30);
+
+					// Save user data in a cookie with a dynamic expiration date
+					document.cookie = `userData=${JSON.stringify(
+						responseData
+					)}; expires=${expirationDate.toUTCString()}; path=/`;
+
 					dispatch(saveUserData(responseData)); // This will save userData to Redux state
 					toast.success(responseData.message);
 					router.push("../signup/business-signup/social-link/"); // Replace '/success' with the desired page path
@@ -95,12 +104,30 @@ const page = () => {
 					response.status === 201 &&
 					responseData.message === "Missing Business Details"
 				) {
+					// Set the expiration date to a date in the future (e.g., 30 days from the current date)
+					const expirationDate = new Date();
+					expirationDate.setDate(expirationDate.getDate() + 30);
+
+					// Save user data in a cookie with a dynamic expiration date
+					document.cookie = `userData=${JSON.stringify(
+						responseData
+					)}; expires=${expirationDate.toUTCString()}; path=/`;
+
 					dispatch(saveUserData(responseData)); // This will save userData to Redux state
 					toast.success(responseData.message);
 					router.push(
 						"../signup/business-signup/business-registration/"
 					);
 				} else {
+					// Set the expiration date to a date in the future (e.g., 30 days from the current date)
+					const expirationDate = new Date();
+					expirationDate.setDate(expirationDate.getDate() + 30);
+
+					// Save user data in a cookie with a dynamic expiration date
+					document.cookie = `userData=${JSON.stringify(
+						responseData
+					)}; expires=${expirationDate.toUTCString()}; path=/`;
+
 					dispatch(saveUserData(responseData)); // This will save userData to Redux state
 					// toast.success(responseData.message);
 					router.push("../dashboard"); // Replace '/success' with the desired page path
