@@ -61,17 +61,7 @@ function page() {
 			)}
 		</div>
 	);
-
-	// if (isLoading) {
-	// 	// Render a loading indicator
-	// 	return ;
-	// } else if (productData) {
-	// 	// Render your component with the fetched data
-	// 	return <Dashboard data={productData} />;
-	// } else {
-	// 	// Handle other cases or render a default component
-	// 	return <UserNotFound />;
-	// }
+ s;
 }
 
 export default withAuth(page);
