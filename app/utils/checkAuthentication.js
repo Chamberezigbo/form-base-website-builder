@@ -1,6 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
 import { saveUserData } from "../redux/reducers/userReducer";
 
+// Define the getCookieUserData function to read user data from cookies
+const getCookieUserData = () => {
+	// Implement your logic to read user data from cookies here
+	// For example, if the user data is stored in a cookie called "userData":
+	const userDataCookie = document.cookie
+		.split("; ")
+		.find((cookie) => cookie.startsWith("userData="));
+	if (userDataCookie) {
+		const userDataString = userDataCookie.split("=")[1];
+		return JSON.parse(decodeURIComponent(userDataString));
+	}
+	// If user data is not found in cookies, return null or handle it accordingly.
+	return null;
+};
+
 const checkAuthentication = () => {
 	const dispatch = useDispatch();
 
@@ -13,7 +28,7 @@ const checkAuthentication = () => {
 	}
 
 	// If user data is not in Redux, try to get it from cookies
-	const cookieUserData = getCookieUserData(); // Implement this function to read user data from cookies
+	const cookieUserData = getCookieUserData();
 
 	// If user data is found in cookies, save it to Redux and return true
 	if (cookieUserData) {
