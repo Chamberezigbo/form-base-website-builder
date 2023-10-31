@@ -3,7 +3,11 @@ import { saveUserData } from "../redux/reducers/userReducer";
 
 // Define the getCookieUserData function to read user data from cookies
 const getCookieUserData = () => {
-	// Implement your logic to read user data from cookies here
+	if (typeof document === "undefined") {
+		// Check if the document object is not available (server-side).
+		return null;
+	}
+     
 	// For example, if the user data is stored in a cookie called "userData":
 	const userDataCookie = document.cookie
 		.split("; ")
