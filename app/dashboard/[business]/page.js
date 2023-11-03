@@ -53,10 +53,10 @@ const Page = ({ params }) => {
 		// Render an error message or redirect to a "not found" page
 		if (error === "User not found") {
 			// Redirect to the Next.js built-in "notFound" page
-			return <UserNotFound />;
+			return <UserNotFound errorMessage="User Not Found" />;
 		} else {
 			// Render an error message
-			return <p>{error}</p>;
+			return <UserNotFound errorMessage={error} />;
 		}
 	} else if (productData) {
 		// Render your component with the fetched data
