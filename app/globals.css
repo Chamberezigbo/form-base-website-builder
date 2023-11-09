@@ -23,8 +23,8 @@ body{
 
 /*  styles for dashboard  */
 .logo {
-     border: 3px solid #ffff; /* Border color and thickness */
-     border-radius: 15px;  
+    border: 3px solid #ffff; /* Border color and thickness */
+    border-radius: 50%;
 }
 
 /* Styling for the icon container */
@@ -116,4 +116,10 @@ body{
           right: -220%;
           top:-50%;
      }
+     .social-icons {
+     font-size: 15px; /* Set the desired font size */
+     display: grid;
+     grid-template-columns: repeat(2, 0fr);
+     padding: 5px;
+}
 }

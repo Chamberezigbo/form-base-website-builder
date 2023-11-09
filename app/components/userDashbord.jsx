@@ -5,11 +5,10 @@ import { BsFillTelephoneOutboundFill } from "react-icons/bs";
 
 const Dashboard = ({ data }) => {
 	const [copied, setCopied] = useState(false);
+	const nameToCopy = `formcraft.netlify.app/dashboard/${data.user.user_id}`;
 
 	// Function to handle copying the text
 	const copyText = () => {
-		const nameToCopy = `formcraft.netlify.app/dashboard/${data.user.user_id}`;
-
 		// Create a temporary input element
 		const tempInput = document.createElement("input");
 		tempInput.value = nameToCopy;
@@ -53,21 +52,21 @@ const Dashboard = ({ data }) => {
 										onClick={copyText}
 									/>
 								</span>
-								<div className="mx-auto">
+								<div className="mx-auto url">
 									<span
 										className={`copyable ${
 											copied ? "copied" : ""
 										}`}
 										onClick={copyText}
 									>
-										formcraft.thetekpreneurs.com/dashboard/
-										{data.user.user_id}
+										<p>My Business URL</p>
 									</span>
 								</div>
 							</div>
 						</div>
-						<p className="text-center">
-							copy your link to potential client
+						<p className="text-center mt-3">
+							click ☝🏽 on your url to copy your url to potential
+							client
 						</p>
 					</div>
 				</div>
