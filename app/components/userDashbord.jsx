@@ -37,7 +37,6 @@ const Dashboard = ({ data }) => {
 							<img
 								src={`https://apis.thetekpreneurs.com/api-endpoint/${data.user.logo}`}
 								className="logo"
-								width={90}
 							/>
 							<h1 className={styles.h1}>{data.user.name}</h1>
 							<h5>{data.user.description}</h5>
