@@ -25,6 +25,10 @@ body{
 .logo {
     border: 3px solid #ffff; /* Border color and thickness */
     border-radius: 50%;
+    /* make the image a circle */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 /* Styling for the icon container */
